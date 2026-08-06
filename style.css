@@ -314,3 +314,60 @@ h1, h2, h3 {
   display: block;
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
+/* Floating Music Button */
+.floating-music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(255, 77, 109, 0.4);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+.floating-music-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1001;
+}
+.modal-overlay.show {
+  opacity: 1; pointer-events: auto;
+}
+
+/* Modal Content Box (Tall for Playlist Scroll) */
+.modal-content.playlist-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.close-btn {
+  position: absolute; top: 10px; right: 15px;
+  background: none; border: none; font-size: 1.5rem; cursor: pointer;
+}
+.modal-subtext {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+#spotify-player {
+  border-radius: 12px;
+}
