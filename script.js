@@ -44,3 +44,17 @@ clickerBtn.addEventListener('click', () => {
     rewardMsg.innerText = rewards[hugs];
   }
 });
+// --- Spotify Modal Toggle ---
+const musicBtn = document.getElementById('music-btn');
+const musicModal = document.getElementById('music-modal');
+const closeModal = document.getElementById('close-modal');
+
+if (musicBtn && musicModal && closeModal) {
+  musicBtn.addEventListener('click', () => {
+    musicModal.classList.add('show');
+  });
+
+  closeModal.addEventListener('click', () => {
+    musicModal.classList.remove('show');
+  });
+}
