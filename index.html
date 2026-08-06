@@ -42,34 +42,42 @@
       </div>
     </div>
   </section>
-  <!-- Interactive Birthday Cake Section -->
+<!-- Interactive Birthday Cake Section -->
 <section class="card cake-card">
   <h2>Decorate Your Sweet 16 Cake! 🍰✨</h2>
-  <p class="section-desc">Design your dream cake, light the candle, and make a wish!</p>
+  <p class="section-desc">Tap the frosting colors, add your favorite toppings, and click the candle to light it!</p>
 
   <!-- Cake Stage -->
   <div class="cake-container" id="cakeStage">
-    <!-- Dim overlay for blowing out candle -->
+    <!-- Wish Overlay -->
     <div class="wish-overlay" id="wishOverlay">
       <div class="wish-modal">
-        <h3>✨ Make a Birthday Wish! ✨</h3>
-        <p>Close your eyes, make your favorite wish, and tap blow!</p>
+        <div class="glow-sparkles">✨🌸✨</div>
+        <h3>Make Your Sweet 16 Wish! 💖</h3>
+        <p>Close your eyes, think of something wonderful, and blow out the candle!</p>
         <button class="wish-btn" onclick="blowOutCandle()">🌬️ Blow Out Candle!</button>
       </div>
     </div>
 
-    <!-- The Cake Base -->
+    <!-- Interactive Cake Base -->
     <div class="cake" id="cake">
-      <div class="candle" id="candle" onclick="lightCandle()">
+      <div class="candle" id="candle" onclick="lightCandle()" title="Click to light the candle!">
         <div class="flame" id="flame"></div>
         <div class="candle-number">16</div>
       </div>
+      
+      <!-- Top Layer -->
       <div class="cake-layer layer-top" id="layerTop">
+        <div class="drips"></div>
         <div class="toppings-container" id="toppingsTop"></div>
       </div>
+      
+      <!-- Bottom Layer -->
       <div class="cake-layer layer-bottom" id="layerBottom">
+        <div class="drips"></div>
         <div class="toppings-container" id="toppingsBottom"></div>
       </div>
+      
       <div class="cake-plate"></div>
     </div>
   </div>
@@ -77,12 +85,12 @@
   <!-- Customization Toolbar -->
   <div class="cake-controls">
     <div class="control-group">
-      <span class="control-label">Frosting Flavor:</span>
+      <span class="control-label">Frosting Theme:</span>
       <div class="color-palette">
-        <button class="color-btn pink active" onclick="changeFrosting('#ffb3c1', '#ff85a1')" title="Strawberry Pink"></button>
-        <button class="color-btn cream" onclick="changeFrosting('#fff3b0', '#ffe066')" title="Vanilla Cream"></button>
-        <button class="color-btn lavender" onclick="changeFrosting('#e2afff', '#c77dff')" title="Berry Lavender"></button>
-        <button class="color-btn mint" onclick="changeFrosting('#b7efc5', '#74c69d')" title="Sweet Mint"></button>
+        <button class="color-btn pink active" onclick="changeFrosting('pink')" title="Strawberry Pink"></button>
+        <button class="color-btn cream" onclick="changeFrosting('cream')" title="Vanilla Cream"></button>
+        <button class="color-btn lavender" onclick="changeFrosting('lavender')" title="Berry Lavender"></button>
+        <button class="color-btn mint" onclick="changeFrosting('mint')" title="Sweet Mint"></button>
       </div>
     </div>
 
@@ -93,13 +101,14 @@
         <button class="top-btn" onclick="addTopping('🍒')">🍒 Cherry</button>
         <button class="top-btn" onclick="addTopping('🎀')">🎀 Ribbon</button>
         <button class="top-btn" onclick="addTopping('✨')">✨ Sparkle</button>
-        <button class="top-btn" onclick="addTopping('🌰')">🐿️ Momonga</button>
+        <button class="top-btn" onclick="addTopping('🍫')">🍫 Chocolate</button>
+        <button class="top-btn" onclick="addTopping('🕯️')">🕯️ Mini Candle</button>
       </div>
     </div>
 
     <div class="control-actions">
-      <button class="action-btn clear-btn" onclick="clearToppings()">🔄 Reset Cake</button>
-      <button class="action-btn light-btn" id="lightBtn" onclick="lightCandle()">🕯️ Light the Candle!</button>
+      <button class="action-btn clear-btn" onclick="clearToppings()">🔄 Clear Toppings</button>
+      <button class="action-btn light-btn" id="lightBtn" onclick="lightCandle()">🕯️ Light Candle!</button>
     </div>
   </div>
 </section>
