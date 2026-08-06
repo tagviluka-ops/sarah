@@ -98,3 +98,88 @@ if (musicBtn && musicModal && closeModal) {
     }
   });
 }
+// --- Interactive Birthday Cake Logic ---
+let isCandleLit = false;
+
+// Change Frosting Color
+function changeFrosting(topColor, bottomColor) {
+  const layerTop = document.getElementById('layerTop');
+  const layerBottom = document.getElementById('layerBottom');
+  
+  if (layerTop && layerBottom) {
+    layerTop.style.backgroundColor = topColor;
+    layerBottom.style.backgroundColor = bottomColor;
+  }
+}
+
+// Add Topping Emoji to Cake Layers
+function addTopping(emoji) {
+  const toppingsTop = document.getElementById('toppingsTop');
+  const toppingsBottom = document.getElementById('toppingsBottom');
+  
+  if (!toppingsTop || !toppingsBottom) return;
+
+  const topping = document.createElement('span');
+  topping.classList.add('placed-topping');
+  topping.innerText = emoji;
+
+  // Random positioning inside the cake layers
+  const randomX = Math.floor(Math.random() * 80) + 10; // 10% to 90%
+  topping.style.left = `${randomX}%`;
+
+  // Randomly select top or bottom layer
+  if (Math.random() > 0.5) {
+    toppingsTop.appendChild(topping);
+  } else {
+    toppingsBottom.appendChild(topping);
+  }
+}
+
+// Clear all placed toppings
+function clearToppings() {
+  const toppingsTop = document.getElementById('toppingsTop');
+  const toppingsBottom = document.getElementById('toppingsBottom');
+  if (toppingsTop) toppingsTop.innerHTML = '';
+  if (toppingsBottom) toppingsBottom.innerHTML = '';
+}
+
+// Light Candle & Dim Screen
+function lightCandle() {
+  const flame = document.getElementById('flame');
+  const wishOverlay = document.getElementById('wishOverlay');
+  const lightBtn = document.getElementById('lightBtn');
+
+  if (!flame || !wishOverlay) return;
+
+  isCandleLit = true;
+  flame.classList.add('lit');
+  wishOverlay.classList.add('active');
+
+  if (lightBtn) {
+    lightBtn.innerText = '✨ Candle Lit!';
+  }
+}
+
+// Blow Out Candle & Trigger Celebration
+function blowOutCandle() {
+  const flame = document.getElementById('flame');
+  const wishOverlay = document.getElementById('wishOverlay');
+  const lightBtn = document.getElementById('lightBtn');
+
+  if (!flame || !wishOverlay) return;
+
+  flame.classList.remove('lit');
+  wishOverlay.classList.remove('active');
+  isCandleLit = false;
+
+  if (lightBtn) {
+    lightBtn.innerText = '🕯️ Light the Candle!';
+  }
+
+  // Create cute heart burst celebration
+  for (let i = 0; i < 15; i++) {
+    setTimeout(createFloatingDecoration, i * 150);
+  }
+
+  alert("💖 Your wish has been sent to Luka! Happy Sweet 16 Sarah! 🎉");
+}
