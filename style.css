@@ -659,11 +659,13 @@ body {
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
+  align-items: stretch; /* Prevents cards from sliding out of alignment */
   gap: 20px;
+  margin: 0 auto; /* Centers the container on the screen */
 }
 
 .card {
