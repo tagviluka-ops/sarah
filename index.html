@@ -87,6 +87,28 @@
       <div id="rewardMsg" class="reward-msg">Tap the button to unlock messages!</div>
     </div>
   </section>
+  <!-- Days Together Section -->
+<section class="card timer-card">
+  <h2>TOGETHER FOR 💖</h2>
+  <div class="counter-box">
+    <div class="time-unit">
+      <span id="days">0</span>
+      <p>Days</p>
+    </div>
+    <div class="time-unit">
+      <span id="hours">0</span>
+      <p>Hours</p>
+    </div>
+    <div class="time-unit">
+      <span id="mins">0</span>
+      <p>Mins</p>
+    </div>
+    <div class="time-unit">
+      <span id="secs">0</span>
+      <p>Secs</p>
+    </div>
+  </div>
+</section>
 
   <!-- Photo Memory Frames Section -->
   <section class="card gallery-card">
@@ -115,5 +137,27 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- Floating Music Button -->
+<button id="music-btn" class="floating-music-btn">🎵 Our Song Menu</button>
+
+<!-- Spotify Pop-Up Modal -->
+<div id="music-modal" class="modal-overlay">
+  <div class="modal-content playlist-modal">
+    <button id="close-modal" class="close-btn">&times;</button>
+    <h3>Our Special Playlist 🎶💖</h3>
+    <p class="modal-subtext">Scroll down inside the player to browse all our songs!</p>
+
+    <!-- Embedded Full Scrollable Spotify Playlist Player -->
+    <iframe id="spotify-player" 
+      src="https://open.spotify.com/embed/playlist/https://open.spotify.com/playlist/1epw8U64U2HtlmJ8M6SRkQ?si=538a23a4ec9e4a2b?utm_source=generator" 
+      width="100%" 
+      height="380" 
+      frameborder="0" 
+      allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
 </body> 
 </html>
