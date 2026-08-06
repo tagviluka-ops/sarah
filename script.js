@@ -183,3 +183,101 @@ function blowOutCandle() {
 
   alert("💖 Your wish has been sent to Luka! Happy Sweet 16 Sarah! 🎉");
 }
+// --- Interactive Birthday Cake Logic ---
+const frostingThemes = {
+  pink: { top: '#ffb3c1', bottom: '#ff85a1', drip: '#ff758f' },
+  cream: { top: '#fff3b0', bottom: '#ffe066', drip: '#ffd166' },
+  lavender: { top: '#e2afff', bottom: '#c77dff', drip: '#b185db' },
+  mint: { top: '#b7efc5', bottom: '#74c69d', drip: '#52b788' }
+};
+
+function changeFrosting(themeKey) {
+  const theme = frostingThemes[themeKey];
+  if (!theme) return;
+
+  const layerTop = document.getElementById('layerTop');
+  const layerBottom = document.getElementById('layerBottom');
+
+  if (layerTop && layerBottom) {
+    layerTop.style.backgroundColor = theme.top;
+    layerBottom.style.backgroundColor = theme.bottom;
+  }
+
+  // Update active state on buttons
+  document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.querySelector(`.color-btn.${themeKey}`);
+  if (activeBtn) activeBtn.classList.add('active');
+}
+
+// Add Topping Emoji to Cake Layers
+function addTopping(emoji) {
+  const toppingsTop = document.getElementById('toppingsTop');
+  const toppingsBottom = document.getElementById('toppingsBottom');
+  
+  if (!toppingsTop || !toppingsBottom) return;
+
+  const topping = document.createElement('span');
+  topping.classList.add('placed-topping');
+  topping.innerText = emoji;
+
+  // Random horizontal position across the cake layer
+  const randomX = Math.floor(Math.random() * 75) + 12; // 12% to 87%
+  topping.style.left = `${randomX}%`;
+
+  // Randomly distribute onto top or bottom tier
+  if (Math.random() > 0.45) {
+    toppingsTop.appendChild(topping);
+  } else {
+    toppingsBottom.appendChild(topping);
+  }
+}
+
+// Clear placed toppings
+function clearToppings() {
+  const toppingsTop = document.getElementById('toppingsTop');
+  const toppingsBottom = document.getElementById('toppingsBottom');
+  if (toppingsTop) toppingsTop.innerHTML = '';
+  if (toppingsBottom) toppingsBottom.innerHTML = '';
+}
+
+// Light Candle & Dim Screen
+function lightCandle() {
+  const flame = document.getElementById('flame');
+  const wishOverlay = document.getElementById('wishOverlay');
+  const lightBtn = document.getElementById('lightBtn');
+
+  if (!flame || !wishOverlay) return;
+
+  flame.classList.add('lit');
+  wishOverlay.classList.add('active');
+
+  if (lightBtn) {
+    lightBtn.innerText = '✨ Candle Lit!';
+  }
+}
+
+// Blow Out Candle & Trigger Celebration
+function blowOutCandle() {
+  const flame = document.getElementById('flame');
+  const wishOverlay = document.getElementById('wishOverlay');
+  const lightBtn = document.getElementById('lightBtn');
+
+  if (!flame || !wishOverlay) return;
+
+  flame.classList.remove('lit');
+  wishOverlay.classList.remove('active');
+
+  if (lightBtn) {
+    lightBtn.innerText = '🕯️ Light Candle!';
+  }
+
+  // Spawn celebration decorations across background
+  for (let i = 0; i < 20; i++) {
+    setTimeout(createFloatingDecoration, i * 100);
+  }
+
+  // Show cute completion alert
+  setTimeout(() => {
+    alert("💖 Wish made & candle blown out! Happy Sweet 16 Sarah! 🎉🌸");
+  }, 400);
+}
