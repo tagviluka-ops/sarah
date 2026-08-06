@@ -631,62 +631,65 @@ h1, h2, h3 {
 }
 
 .action-btn:hover { transform: scale(1.04); }
+:root {
+  --primary-red: #e63946;
+  --soft-red: #ff758f;
+  --blush-pink: #fff0f3;
+  --card-border: #ffccd5;
+  --text-dark: #2b2d42;
+  --text-muted: #6c757d;
+  --bg-gradient: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+}
 
-/* Make a Wish Overlay */
-.wish-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(20, 10, 25, 0.85);
-  border-radius: 16px;
-  z-index: 10;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-dark);
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
-.wish-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.wish-modal {
-  text-align: center;
-  color: white;
+  align-items: center;
   padding: 20px;
 }
 
-.wish-modal h3 {
-  color: #ffb3c1;
-  font-size: 1.3rem;
-  margin-bottom: 8px;
+.container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.wish-modal p {
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid white;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Fredoka', cursive, sans-serif;
+  color: var(--primary-red);
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.section-desc {
   font-size: 0.85rem;
+  color: var(--text-muted);
   margin-bottom: 15px;
-  color: #ffe3e8;
 }
 
-.wish-btn {
-  background: #ff4d6d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-family: 'Fredoka', cursive;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
-  transition: transform 0.2s;
-}
-
-.wish-btn:hover {
-  transform: scale(1.08);
-}
-/* --- Upgraded Cake Decorator Styles --- */
+/* --- Cake Decorator Section --- */
 .cake-card {
   overflow: hidden;
 }
@@ -791,7 +794,7 @@ h1, h2, h3 {
 .candle-number {
   position: absolute;
   top: 14px;
-  font-family: 'Fredoka', cursive;
+  font-family: 'Fredoka', cursive, sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   color: white;
@@ -901,7 +904,7 @@ h1, h2, h3 {
 .action-btn {
   padding: 10px 18px;
   border-radius: 25px;
-  font-family: 'Fredoka', cursive;
+  font-family: 'Fredoka', cursive, sans-serif;
   font-size: 0.9rem;
   border: none;
   cursor: pointer;
@@ -971,7 +974,7 @@ h1, h2, h3 {
   border: none;
   padding: 10px 22px;
   border-radius: 25px;
-  font-family: 'Fredoka', cursive;
+  font-family: 'Fredoka', cursive, sans-serif;
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 0 18px rgba(255, 77, 109, 0.7);
@@ -980,4 +983,24 @@ h1, h2, h3 {
 
 .wish-btn:hover {
   transform: scale(1.08);
+}
+
+/* Floating celebration elements */
+.floating-deco {
+  position: fixed;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 999;
+  animation: floatUp 2.5s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(0.8); opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
